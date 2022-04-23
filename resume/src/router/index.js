@@ -3,7 +3,12 @@ import Vue from 'vue'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import LogIn from '../views/LogIn.vue'
-Vue.use(VueRouter);
+
+
+
+Vue.use(VueRouter)
+
+
 
 const routes = [
   {
@@ -33,13 +38,13 @@ const routes = [
     },
   }
 
-];
+]
 
 const router = new VueRouter({
   mode:'history',
-  base:process.env.BASE-URL,
+  base:process.env.BASE_URL,
   routes,
-});
+})
 router.beforeEach((to, from, next) => {
   const authenticatedUser = firebase.auth().currentUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
@@ -52,6 +57,6 @@ router.beforeEach((to, from, next) => {
 
       next();
   }
-});
+})
 
-export default router;
+export default router

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import vuetify from './plugins/vuetify'
-// import { loadFonts } from './plugins/webfontloader'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 import router from './router'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
@@ -22,7 +22,10 @@ firebase.initializeApp(firebaseConfig);
 
 Vue.config.prooductionTip=false;
 
+
 new Vue({
   router,
-  render:h=>h(App),
-}).$mount("#app");
+  vuetify,
+  loadFonts,
+  render: h => h(App),
+}).$mount("#app")
