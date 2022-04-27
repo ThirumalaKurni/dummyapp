@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
 
 Vue.use(VueRouter)
 
@@ -12,6 +14,9 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: () => import('@/views/dashboard/Dashboard.vue'),
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/typography',
@@ -78,5 +83,20 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  const authenticatedUser = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  
+  if ( requiresAuth && ! authenticatedUser ) {
+      next("/pages/login");
+  }
+  else {
+    // firebase.analytics().logEvent('page_view', { type: 'internal' });
+
+      next();
+  }
+})
+
 
 export default router

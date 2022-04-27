@@ -34,7 +34,7 @@
         </v-card-text>
         <!-- login form -->
         <v-card-text>
-          <v-form>
+          <v-form @submit.prevent="login">
             <v-text-field
               v-model="email"
               outlined
@@ -77,7 +77,10 @@
               color="primary"
               class="mt-6"
             >
+            <router-link :to="{name:'dashboard'}">
               Login
+            </router-link>
+
             </v-btn>
           </v-form>
         </v-card-text>
