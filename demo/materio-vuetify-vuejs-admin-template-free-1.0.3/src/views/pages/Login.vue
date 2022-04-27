@@ -32,15 +32,16 @@
             Please sign-in to your account and start the adventure
           </p>
         </v-card-text>
+
         <!-- login form -->
         <v-card-text>
-          <v-form @submit.prevent="login">
+          <v-form>
             <v-text-field
               v-model="email"
               outlined
               label="Email"
-              hide-details
               placeholder="john@example.com"
+              hide-details
               class="mb-3"
             ></v-text-field>
 
@@ -76,8 +77,8 @@
               block
               color="primary"
               class="mt-6"
-              >
-                Login
+            >
+              Login
             </v-btn>
           </v-form>
         </v-card-text>

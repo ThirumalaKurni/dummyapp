@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
 
 Vue.use(VueRouter)
 
@@ -13,10 +11,27 @@ const routes = [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: () => import('@/views/DashBoard.vue'),
-    meta: {
-      requiresAuth: true,
-    },
+    component: () => import('@/views/dashboard/Dashboard.vue'),
+  },
+  {
+    path: '/typography',
+    name: 'typography',
+    component: () => import('@/views/typography/Typography.vue'),
+  },
+  {
+    path: '/icons',
+    name: 'icons',
+    component: () => import('@/views/icons/Icons.vue'),
+  },
+  {
+    path: '/cards',
+    name: 'cards',
+    component: () => import('@/views/cards/Card.vue'),
+  },
+  {
+    path: '/simple-table',
+    name: 'simple-table',
+    component: () => import('@/views/simple-table/SimpleTable.vue'),
   },
   {
     path: '/form-layouts',
@@ -63,7 +78,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 })
-
-
 
 export default router
