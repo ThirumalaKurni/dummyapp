@@ -62,7 +62,7 @@
 
 <script>
 import profileCollRef from '../firebase';
-import {addDoc} from '/firebase/firestore';
+import {addDoc} from 'firestore';
 export default {
   data(){
     return{
