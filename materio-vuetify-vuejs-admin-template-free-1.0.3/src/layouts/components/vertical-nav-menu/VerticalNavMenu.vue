@@ -14,18 +14,9 @@
         to="/"
         class="d-flex align-center text-decoration-none"
       >
-        <v-img
-          :src="require('@/assets/images/logos/logo.svg')"
-          max-height="30px"
-          max-width="30px"
-          alt="logo"
-          contain
-          eager
-          class="app-logo me-3"
-        ></v-img>
         <v-slide-x-transition>
           <h2 class="app-title text--primary">
-            MATERIO
+            Resume Builder
           </h2>
         </v-slide-x-transition>
       </router-link>
@@ -69,29 +60,24 @@
       </nav-menu-group>
       <nav-menu-section-title title="USER INTERFACE"></nav-menu-section-title>
       <nav-menu-link
-        title="Typography"
-        :to="{ name: 'typography' }"
-        :icon="icons.mdiAlphaTBoxOutline"
+        title="My Profile"
+        :to="{ name: 'profile' }"
       ></nav-menu-link>
       <nav-menu-link
-        title="Icons"
-        :to="{ name: 'icons' }"
-        :icon="icons.mdiEyeOutline"
+        title="Education Details"
+        :to="{ name: 'education' }"
       ></nav-menu-link>
       <nav-menu-link
-        title="Cards"
-        :to="{ name: 'cards' }"
-        :icon="icons.mdiCreditCardOutline"
+        title="My Skills"
+        :to="{ name: 'skills' }"
       ></nav-menu-link>
       <nav-menu-link
-        title="Tables"
-        :to="{ name: 'simple-table' }"
-        :icon="icons.mdiTable"
+        title="My Projects"
+        :to="{ name: 'projects' }"
       ></nav-menu-link>
       <nav-menu-link
-        title="Form Layouts"
-        :to="{ name: 'form-layouts' }"
-        :icon="icons.mdiFormSelect"
+        title="My Certifications"
+        :to="{ name: 'certifications' }"
       ></nav-menu-link>
     </v-list>
     <a
@@ -99,13 +85,6 @@
       target="_blank"
       rel="nofollow"
     >
-      <v-img
-        :src="require(`@/assets/images/pro/upgrade-banner-${$vuetify.theme.dark ? 'dark' : 'light'}.png`)"
-        alt="upgrade-banner"
-        transition="scale-transition"
-        class="upgrade-banner mx-auto"
-        max-width="230"
-      ></v-img>
     </a>
   </v-navigation-drawer>
 </template>

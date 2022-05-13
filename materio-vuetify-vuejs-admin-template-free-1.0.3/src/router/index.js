@@ -56,6 +56,36 @@ const routes = [
     path: '*',
     redirect: 'error-404',
   },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('@/views/MyProfile'),
+  },
+  {
+    path: '/education',
+    name: 'education',
+    component: () => import('@/views/EducationDetails'),
+  },
+  {
+    path: '/experience',
+    name: 'experience',
+    component: () => import('@/views/MyExperience'),
+  },
+  {
+    path: '/project',
+    name: 'projects',
+    component: () => import('@/views/MyProjects'),
+  },
+  {
+    path: '/skills',
+    name: 'skills',
+    component: () => import('@/views/MySkills'),
+  },
+  {
+    path: '/certifications',
+    name:'certifications',
+    component: () => import('@/views/MyCertifications'),
+  },
 ]
 
 const router = new VueRouter({
