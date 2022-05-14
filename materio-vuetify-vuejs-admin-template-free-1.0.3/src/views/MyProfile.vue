@@ -23,7 +23,7 @@
       label="Mobile"
       outlined
       dense
-      type="number"
+      type="text"
       placeholder="Number"
     ></v-text-field>
 
@@ -36,7 +36,8 @@
       placeholder="Dob"
     ></v-text-field>
 
-    <v-btn color="primary">
+    <v-btn color="primary"
+    type="submit">
       Save
     </v-btn>
   </v-form>
@@ -44,10 +45,9 @@
       Your Details
   </h2>
   <ul class="ma-5">
-      <li><span>Name:Kurni Thirumala</span></li>
-      <li><span>Email:kurnithirumala2001@gmail.com</span></li>
-      <li><span>Number:9652441001</span></li>
-      <li><span>Date of Birth:01/04/2001</span></li>
+      <li  v-for="profile in profiles" :key="profile.id">
+        {{profile.name}}
+      </li>
   </ul>
   <v-btn
       type="reset"
@@ -61,8 +61,9 @@
 
 
 <script>
-import profileCollRef from '../firebase';
-import {addDoc} from 'firestore';
+import profileCollRef from "../firebase";
+import {addDoc} from "firebase/firestore";
+import {getDocs} from "firebase/firestore";
 export default {
   data(){
     return{
@@ -70,14 +71,28 @@ export default {
       email: null,
       mobile: null,
       dob:null,
-    }
+      profiles:[],
+    };
   },
   methods:{
     async createProfile(){
       console.log('Creating Document');
       const addedDoc = await addDoc(profileCollRef,this.$data);
-      console.log(addedDoc);;
+      alert('Document Created Successfully')
+      console.log(addedDoc);
+    },
+    async fetchProfiles(){
+       let profilesSnapShot = await getDocs(profileCollRef);
+       let profiles = [];
+       profilesSnapShot.forEach(profile=>{
+         profiles.push(profile.data());
+
+       });
+       this.profiles=profiles;
     }
-  }
-}
+  },
+  created(){
+    this.fetchProfiles();
+  },
+};
 </script>
