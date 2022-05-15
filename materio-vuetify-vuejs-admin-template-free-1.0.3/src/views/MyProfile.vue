@@ -44,10 +44,11 @@
   <h2 class="ma-6">
       Your Details
   </h2>
-  <ul class="ma-5">
-      <li  v-for="profile in profiles" :key="profile.id">
-        {{profile.name}}
-      </li>
+  <ul class="ma-5" v-for="profile in profiles" :key="profile.id">
+      <li> {{profile.firstname}} </li>
+      <li> {{profile.email}}</li>
+      <li> {{profile.mobile}}</li>
+     <li> {{profile.dob}} </li>
   </ul>
   <v-btn
       type="reset"
@@ -76,7 +77,6 @@ export default {
   },
   methods:{
     async createProfile(){
-      console.log('Creating Document');
       const addedDoc = await addDoc(profileCollRef,this.$data);
       alert('Document Created Successfully')
       console.log(addedDoc);
