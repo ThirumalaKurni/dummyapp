@@ -102,25 +102,15 @@
     </v-btn>
   </v-form>
 
-  <ul class="ma-5" v-for="education in educations" :key="education.id">
-      <li> {{education.collegename}} </li>
-      <li> {{education.yearofpassing}}</li>
-      <li> {{education.grade}}</li>
-      <li> {{education.collegename12}} </li>
-      <li> {{education.yearofpassing12}}</li>
-      <li> {{education.grade12}}</li>
-      <li> {{education.schoolname}} </li>
-      <li> {{education.yearofpassing10}}</li>
-      <li> {{education.grade10}}</li>
-  </ul>
+
     </div>
 </template>
 
 
 <script>
-import educationCollRef from "../firebase";
+import {educationCollRef }from "../firebase";
 import {addDoc} from "firebase/firestore";
-import {getDocs} from "firebase/firestore";
+// import {getDocs} from "firebase/firestore";
 export default {
   data(){
     return{
@@ -141,19 +131,7 @@ export default {
       const addedDoc = await addDoc(educationCollRef,this.$data);
       alert('Document Created Successfully')
       console.log(addedDoc);
-    },
-    async fetchEducations(){
-       let educationsSnapShot = await getDocs(profileCollRef);
-       let educations = [];
-       educationsSnapShot.forEach(education=>{
-         educations.push(education.data());
-
-       });
-       this.educations=educations;
     }
-  },
-  created(){
-    this.fetchEducations();
-  },
-};
+}
+}
 </script>
