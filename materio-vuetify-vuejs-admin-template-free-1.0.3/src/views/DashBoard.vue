@@ -49,22 +49,7 @@
          </v-btn>
       </div>
     </v-card>
-    <v-card max-width=500 outlined class="mx-auto mb-6">
-      <div class="ma-5">
-        <v-toolbar class="mx-auto px-6"
-         width="250px">MY EXPERIENCE
-         </v-toolbar>
-         <v-spacer></v-spacer>
-         <v-btn
-              block
-              rounded
-              color="primary"
-              class="mt-6"
-              v-on:click="experience()">
-             Click here to Add Your Experience
-         </v-btn>
-      </div>
-    </v-card>
+   
     <v-card max-width=500 outlined class="mx-auto mb-6">
       <div class="ma-5">
         <v-toolbar class="mx-auto px-6"

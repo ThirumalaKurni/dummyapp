@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-from @submit.prevent="createSkill">
+        <v-form @submit.prevent="createSkill">
         <h2 class="ma-5">Add Skills</h2>
         <v-text-field
             v-model="myskills"
@@ -11,7 +11,7 @@
           
         ></v-text-field>
         <v-btn type="submit" color="primary">Save</v-btn>
-        </v-from>
+        </v-form>
 
         <ul class="ma-5" v-for="skill in skills" :key="skill.id">
             <li> {{skill.myskills}} </li>
