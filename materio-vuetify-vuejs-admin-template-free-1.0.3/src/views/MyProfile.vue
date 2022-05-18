@@ -62,7 +62,7 @@
 
 
 <script>
-import {profileCollRef,educationCollRef }from "../firebase";
+import { profileCollRef , educationCollRef ,skillCollRef ,experienceCollRef,projectCollRef,certificationCollRef} from "../firebase";
 import {addDoc} from "firebase/firestore";
 import {getDocs} from "firebase/firestore";
 export default {

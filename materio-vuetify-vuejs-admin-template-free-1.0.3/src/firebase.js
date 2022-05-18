@@ -14,4 +14,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const profileCollRef = collection(db,'profile');
 const educationCollRef = collection(db,'education');
-export { profileCollRef , educationCollRef };
+const skillCollRef = collection(db,'skill');
+const projectCollRef = collection(db,'project');
+const certificationCollRef = collection(db,'certification');
+export { profileCollRef , educationCollRef ,skillCollRef ,projectCollRef,certificationCollRef};

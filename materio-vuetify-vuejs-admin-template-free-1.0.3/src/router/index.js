@@ -67,11 +67,6 @@ const routes = [
     component: () => import('@/views/EducationDetails'),
   },
   {
-    path: '/experience',
-    name: 'experience',
-    component: () => import('@/views/MyExperience'),
-  },
-  {
     path: '/project',
     name: 'projects',
     component: () => import('@/views/MyProjects'),
