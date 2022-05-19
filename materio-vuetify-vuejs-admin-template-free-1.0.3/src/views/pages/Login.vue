@@ -34,9 +34,9 @@
         </v-card-text>
         <!-- login form -->
         <v-card-text>
-          <v-form @submit.prevent="login">
+          <v-form >
             <v-text-field
-              v-model="email"
+              v-model="login_form.email"
               outlined
               label="Email"
               hide-details
@@ -45,7 +45,7 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="password"
+              v-model="login_form.password"
               outlined
               :type="isPasswordVisible ? 'text' : 'password'"
               label="Password"
@@ -76,6 +76,7 @@
               block
               color="primary"
               class="mt-6"
+              type="submit"
               >
                 Login
             </v-btn>
@@ -145,11 +146,11 @@
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
 
+
 export default {
   setup() {
     const isPasswordVisible = ref(false)
-    const email = ref('')
-    const password = ref('')
+
     const socialLink = [
       {
         icon: mdiFacebook,
@@ -175,8 +176,7 @@ export default {
 
     return {
       isPasswordVisible,
-      email,
-      password,
+      login_form,
       socialLink,
 
       icons: {

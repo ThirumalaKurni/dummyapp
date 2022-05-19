@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore,collection} from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBMAq84IhFPCtvGB9yZ474t6NcDvWVZJds",
   authDomain: "resumebuilder-d1f9e.firebaseapp.com",
@@ -13,7 +12,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth=getAuth(app);
 
 const profileCollRef = collection(db,'profile');
 const educationCollRef = collection(db,'education');
@@ -21,4 +19,4 @@ const skillCollRef = collection(db,'skill');
 const projectCollRef = collection(db,'project');
 const certificationCollRef = collection(db,'certification');
 
-export {auth, profileCollRef , educationCollRef ,skillCollRef ,projectCollRef,certificationCollRef};
+export {profileCollRef , educationCollRef ,skillCollRef ,projectCollRef,certificationCollRef};
