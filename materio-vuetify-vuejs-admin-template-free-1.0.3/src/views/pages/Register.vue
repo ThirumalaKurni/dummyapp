@@ -35,7 +35,7 @@
 
         <!-- login form -->
         <v-card-text>
-          <v-form id="signup" @submit.prevent="register">
+          <v-form  @submit.prevent="register">
             <v-text-field
               v-model="username"
               outlined
@@ -81,7 +81,6 @@
               color="primary"
               class="mt-6"
               type="submit"
-              v-if="! xhrRequest"
             >
               Sign Up
             </v-btn>
@@ -154,24 +153,6 @@ import { ref } from '@vue/composition-api'
 import 'firebase/compat/auth'
 
 export default {
-  data(){
-    return {
-      email:'',
-      password:'',
-      xhrRequest: false
-    }
-  },
-  methods:{
-    register(){
-      firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(()=>{
-         alert('Registered Successfully');
-      },
-      (err) => {
-        alert('Error - ${err.message}');
-      })
-
-    }
-  },
   setup() {
     const isPasswordVisible = ref(false)
     const username = ref('')
