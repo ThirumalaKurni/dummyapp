@@ -14,7 +14,7 @@
 
         <ul class="ma-5" v-for="project in projects" :key="project.id">
             <li> {{project.myprojects}} </li>
-            </ul>
+        </ul>
     </div>
 </template>
 
