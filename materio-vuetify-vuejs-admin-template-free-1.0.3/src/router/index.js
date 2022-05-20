@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import firebase from 'firebase/compat/app'
 
 Vue.use(VueRouter)
 
@@ -15,11 +16,6 @@ const routes = [
     meta: {
       authRequired: true,
     },
-  },
-  {
-    path: '/form-layouts',
-    name: 'form-layouts',
-    component: () => import('@/views/form-layouts/FormLayouts.vue'),
   },
   {
     path: '/pages/account-settings',
@@ -93,7 +89,7 @@ router.beforeEach((to, from, next) => {
     } else {
       alert('You must be logged in to see this page');
       next({
-        path: '/',
+        path: '/pages/register',
       });
     }
   } else {

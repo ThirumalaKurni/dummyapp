@@ -33,11 +33,6 @@
         :to="{ name: 'dashboard' }"
         :icon="icons.mdiHomeOutline"
       ></nav-menu-link>
-      <nav-menu-link
-        title="Account Settings"
-        :to="{ name: 'pages-account-settings'}"
-        :icon="icons.mdiAccountCogOutline"
-      ></nav-menu-link>
       <nav-menu-group
         title="Pages"
         :icon="icons.mdiFileOutline"

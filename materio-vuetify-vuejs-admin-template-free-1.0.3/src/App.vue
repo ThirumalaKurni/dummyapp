@@ -10,12 +10,28 @@ import { computed } from '@vue/composition-api'
 import { useRouter } from '@/utils'
 import LayoutBlank from '@/layouts/Blank.vue'
 import LayoutContent from '@/layouts/Content.vue'
+import firebase from 'firebase/compat'
 
 export default {
   components: {
     LayoutBlank,
     LayoutContent,
   },
+  methods: {
+  logout() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        alert('Successfully logged out');
+        this.$router.push('/pages/login');
+      })
+      .catch(error => {
+        alert(error.message);
+        this.$router.push('/');
+      });
+  },
+},
   setup() {
     const { route } = useRouter()
 
