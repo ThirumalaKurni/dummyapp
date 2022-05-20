@@ -198,8 +198,8 @@ export default {
       .auth()
       .createUserWithEmailAndPassword(this.email,this.password)
       .then(()=>{
-        alert('Successfully Registeered');
-        this.$router.push('/');
+        alert('Successfully Registered');
+        this.$router.push('/pages/login');
       })
       .catch(error =>{
         alert(error.message);

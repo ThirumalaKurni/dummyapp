@@ -34,9 +34,9 @@
         </v-card-text>
         <!-- login form -->
         <v-card-text>
-          <v-form >
+          <v-form @submit.prevent="login">
             <v-text-field
-              v-model="login_form.email"
+              v-model="loginemail"
               outlined
               label="Email"
               hide-details
@@ -45,7 +45,7 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="login_form.password"
+              v-model="loginpassword"
               outlined
               :type="isPasswordVisible ? 'text' : 'password'"
               label="Password"
@@ -145,9 +145,17 @@
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
+import firebase from 'firebase/compat/app'
+import "firebase/compat/auth"
 
 
 export default {
+  data(){
+    return{
+      loginemail:'',
+      loginpassword:'',
+    };
+  },
   setup() {
     const isPasswordVisible = ref(false)
 
@@ -176,7 +184,6 @@ export default {
 
     return {
       isPasswordVisible,
-      login_form,
       socialLink,
 
       icons: {
@@ -184,6 +191,20 @@ export default {
         mdiEyeOffOutline,
       },
     }
+  },
+  methods: {
+    login(){
+      firebase
+      .auth()
+      .signInWithEmailAndPassword(this.loginemail,this.loginpassword)
+      .then(()=>{
+        alert('Successfully Logged In');
+        this.$router.push('/');
+      })
+      .catch(error =>{
+        alert(error.message);
+      });
+    },
   },
 }
 </script>
