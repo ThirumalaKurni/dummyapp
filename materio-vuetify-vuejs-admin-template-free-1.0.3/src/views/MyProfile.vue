@@ -64,7 +64,7 @@
 <script>
 import { profileCollRef , educationCollRef ,skillCollRef ,experienceCollRef,projectCollRef,certificationCollRef} from "../firebase";
 import {addDoc} from "firebase/firestore";
-import {getDocs} from "firebase/firestore";
+import {getDoc} from "firebase/firestore";
 export default {
   data(){
     return{
@@ -82,7 +82,7 @@ export default {
       console.log(addedDoc);
     },
     async fetchProfiles(){
-       let profilesSnapShot = await getDocs(profileCollRef);
+       let profilesSnapShot = await getDoc(profileCollRef);
        let profiles = [];
        profilesSnapShot.forEach(profile=>{
          profiles.push(profile.data());

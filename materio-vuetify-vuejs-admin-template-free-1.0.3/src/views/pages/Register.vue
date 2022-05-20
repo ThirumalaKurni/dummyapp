@@ -35,15 +35,7 @@
 
         <!-- login form -->
         <v-card-text>
-          <v-form  @submit.prevent="register">
-            <v-text-field
-              v-model="username"
-              outlined
-              label="Username"
-              placeholder="JohnDoe"
-              hide-details
-              class="mb-3"
-            ></v-text-field>
+          <v-form @submit.prevent="register">
 
             <v-text-field
               v-model="email"
@@ -148,11 +140,17 @@
 <script>
 // eslint-disable-next-line object-curly-newline
 import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js'
-import firebase from 'firebase'
 import { ref } from '@vue/composition-api'
-import 'firebase/compat/auth'
+import firebase from 'firebase/compat/app'
+import "firebase/compat/auth"
 
 export default {
+  data(){
+    return{
+      email:'',
+      password:'',
+    };
+  },
   setup() {
     const isPasswordVisible = ref(false)
     const username = ref('')
@@ -193,6 +191,20 @@ export default {
         mdiEyeOffOutline,
       },
     }
+  },
+  methods: {
+    register(){
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.email,this.password)
+      .then(()=>{
+        alert('Successfully Registeered');
+        this.$router.push('/');
+      })
+      .catch(error =>{
+        alert(error.message);
+      });
+    },
   },
 }
 </script>

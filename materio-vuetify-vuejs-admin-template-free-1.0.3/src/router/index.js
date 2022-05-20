@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
 
 Vue.use(VueRouter)
 
